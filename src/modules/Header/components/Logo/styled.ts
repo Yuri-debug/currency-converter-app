@@ -25,7 +25,7 @@ export const LogoIcon = styled(BsCurrencyExchange)`
 export const LogoText = styled.p`
   padding: 1rem;
 
-  font-family: 'Poppins'
+  font-family: 'Poppins';
   font-size: 1rem;
 
   color: #ffffff;
