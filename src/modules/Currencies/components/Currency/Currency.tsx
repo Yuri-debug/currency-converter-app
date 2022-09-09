@@ -1,5 +1,6 @@
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { useAppDispatch } from '../../../../hooks'
 import { selectCurrency } from '../../../../store/modules'
 import {
   CurrencyLogoEuro,
@@ -12,6 +13,12 @@ import {
 } from './styled'
 
 export const Currency = () => {
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch({ type: 'LOAD_DATA' })
+  }, [])
+
   const currencies = [
     {
       id: 1,

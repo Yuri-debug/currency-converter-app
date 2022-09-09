@@ -1,10 +1,16 @@
-import { useState } from 'react'
-import { useAppSelector } from '../../hooks'
+import { useState, useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from '../../hooks'
 import { selectCurrency } from '../../store/modules'
 import { Button, ExchangeWrapper, Text, Input, Wrapper } from './styled'
 
 export const Exchange = () => {
-  const [res, setRes] = useState('')
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch({ type: 'LOAD_DATA' })
+  }, [])
+
+  const [res, setRes] = useState(String)
   const [submit, setSubmit] = useState(Boolean)
 
   const EUR = useAppSelector(selectCurrency).currency.EUR
